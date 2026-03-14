@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --primary: #ff80ab;
+  --secondary: #d1c4e9;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(335,100%,94%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(260,100%,94%,1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(335,100%,94%,1) 0, transparent 50%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/40 backdrop-blur-md border border-white/40 shadow-xl rounded-2xl transition-all duration-300;
+  }
+  
+  .glass-card:hover {
+    @apply bg-white/50 border-white/60 shadow-2xl;
+  }
+
+  .glass-input {
+    @apply bg-white/30 backdrop-blur-md border border-white/40 rounded-xl px-4 py-2 outline-none focus:ring-2 focus:ring-pink-300 transition-all;
+  }
+
+  .glass-button {
+    @apply bg-gradient-to-r from-pink-400 to-purple-400 text-white font-semibold py-2 px-6 rounded-xl shadow-lg hover:shadow-pink-300/40 hover:scale-105 active:scale-95 transition-all;
+  }
+
+  .glass-button-secondary {
+    @apply bg-white/50 backdrop-blur-md border border-white/40 text-gray-700 font-semibold py-2 px-6 rounded-xl hover:bg-white/70 transition-all;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px rgba(255, 128, 171, 0.4);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
